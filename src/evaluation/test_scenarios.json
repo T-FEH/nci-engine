@@ -1,0 +1,1849 @@
+[
+  {
+    "id": 1,
+    "niche": "AI Travel",
+    "query": "Which AI tool generates personalized travel itineraries based on user preferences?",
+    "expected_tools": [
+      "MagicTrips"
+    ],
+    "expected_answer": {
+      "business_name": "MagicTrips",
+      "capability": "AI-powered personalized travel itinerary planning",
+      "official_website": "https://magictrips.ai/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "TripAdvisor",
+        "reason": "Focuses on reviews, not itinerary generation."
+      },
+      {
+        "business_name": "Booking.com",
+        "reason": "Booking platform, not planning intelligence."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "MagicTrips books flights and hotels directly.",
+      "correct_response_behavior": "Clarify that MagicTrips plans trips but does not handle bookings."
+    },
+    "graded_relevance": {
+      "high": [
+        "MagicTrips"
+      ],
+      "medium": [
+        "Google Travel"
+      ],
+      "none": [
+        "TripAdvisor",
+        "Booking.com"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "niche": "Browser AI Assistants",
+    "query": "Which AI assistant works directly inside the browser across different websites?",
+    "expected_tools": [
+      "Monica",
+      "Merlin",
+      "Cody"
+    ],
+    "expected_answer": {
+      "business_name": "Monica",
+      "capability": "Browser-based AI assistant for writing, summarization, and Q&A",
+      "official_website": "https://monica.im/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "ChatGPT",
+        "reason": "Standalone interface, not browser-native."
+      },
+      {
+        "business_name": "Notion AI",
+        "reason": "Restricted to a workspace."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Monica replaces Google Search.",
+      "correct_response_behavior": "Explain that Monica augments browsing rather than replacing search."
+    },
+    "graded_relevance": {
+      "high": [
+        "Monica",
+        "Merlin",
+        "Cody"
+      ],
+      "medium": [
+        "Bing Copilot"
+      ],
+      "none": [
+        "Notion AI"
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "niche": "AI Search",
+    "query": "Which AI search engine provides summarized answers instead of just links?",
+    "expected_tools": [
+      "You",
+      "Perplexity",
+      "Microsoft Bing"
+    ],
+    "expected_answer": {
+      "business_name": "You.com",
+      "capability": "AI-powered conversational and summarized search",
+      "official_website": "https://you.com/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Google Search",
+        "reason": "Primarily link-based."
+      },
+      {
+        "business_name": "DuckDuckGo",
+        "reason": "Privacy search without AI summaries."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "You.com does not cite sources.",
+      "correct_response_behavior": "State that You.com includes citations and references."
+    },
+    "graded_relevance": {
+      "high": [
+        "You",
+        "Perplexity",
+        "Microsoft Bing"
+      ],
+      "medium": [],
+      "none": [
+        "DuckDuckGo"
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "niche": "Workplace AI",
+    "query": "Which AI tool delivers real-time business insights and alerts directly into Slack?",
+    "expected_tools": [
+      "Jigso",
+      "eesel AI",
+      "Splutter AI"
+    ],
+    "expected_answer": {
+      "business_name": "Jigso",
+      "capability": "AI-powered alerts and workflow intelligence for Slack",
+      "official_website": "https://www.jigso.io/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Zapier",
+        "reason": "Automation-focused, not insight-driven."
+      },
+      {
+        "business_name": "Slackbot",
+        "reason": "Rule-based, not AI-powered insights."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Jigso replaces Slack.",
+      "correct_response_behavior": "Clarify Jigso integrates into Slack."
+    },
+    "graded_relevance": {
+      "high": [
+        "Jigso",
+        "eesel AI",
+        "Splutter AI"
+      ],
+      "medium": [
+        "Zapier"
+      ],
+      "none": [
+        "Slackbot"
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "niche": "Lifestyle AI",
+    "query": "Which AI tool interprets dreams from text descriptions?",
+    "expected_tools": [
+      "Dream Interpreter"
+    ],
+    "expected_answer": {
+      "business_name": "Dream Interpreter",
+      "capability": "AI-based dream interpretation",
+      "official_website": "https://dreaminterpreter.ai/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Calm",
+        "reason": "Meditation app, not dream analysis."
+      },
+      {
+        "business_name": "Headspace",
+        "reason": "Mindfulness app."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Dream Interpreter provides medical advice.",
+      "correct_response_behavior": "Clarify it is for reflection, not diagnosis."
+    },
+    "graded_relevance": {
+      "high": [
+        "Dream Interpreter"
+      ],
+      "medium": [],
+      "none": [
+        "Calm",
+        "Headspace"
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "niche": "Task Management",
+    "query": "Which AI tool helps teams generate task lists, workflows, and mind maps collaboratively?",
+    "expected_tools": [
+      "Taskade"
+    ],
+    "expected_answer": {
+      "business_name": "Taskade",
+      "capability": "AI-powered task management and collaboration",
+      "official_website": "https://www.taskade.com/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Trello",
+        "reason": "Manual task boards."
+      },
+      {
+        "business_name": "Asana",
+        "reason": "Limited AI ideation."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Taskade is only for individuals.",
+      "correct_response_behavior": "Explain Taskade supports teams."
+    },
+    "graded_relevance": {
+      "high": [
+        "Taskade"
+      ],
+      "medium": [
+        "Asana"
+      ],
+      "none": [
+        "Trello"
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "niche": "Knowledge Management",
+    "query": "Which AI feature inside a workspace summarizes notes and generates documentation?",
+    "expected_tools": [
+      "Notion AI"
+    ],
+    "expected_answer": {
+      "business_name": "Notion AI",
+      "capability": "AI-assisted writing and summarization",
+      "official_website": "https://www.notion.so/product/ai"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Google Docs",
+        "reason": "Document editing without workspace AI."
+      },
+      {
+        "business_name": "Evernote",
+        "reason": "Note storage without generation."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Notion AI works outside Notion.",
+      "correct_response_behavior": "Clarify it is Notion-native."
+    },
+    "graded_relevance": {
+      "high": [
+        "Notion AI"
+      ],
+      "medium": [],
+      "none": [
+        "Evernote"
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "niche": "Presentations",
+    "query": "Which AI tool generates investor pitch decks from short descriptions?",
+    "expected_tools": [
+      "Tome",
+      "Gamma",
+      "Decktopus AI"
+    ],
+    "expected_answer": {
+      "business_name": "Tome",
+      "capability": "AI-powered presentation and storytelling generation",
+      "official_website": "https://tome.app/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "PowerPoint",
+        "reason": "Manual slide creation."
+      },
+      {
+        "business_name": "Canva",
+        "reason": "Template-driven."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Tome only designs slides, not content.",
+      "correct_response_behavior": "Clarify it generates narrative content."
+    },
+    "graded_relevance": {
+      "high": [
+        "Tome",
+        "Gamma",
+        "Decktopus AI"
+      ],
+      "medium": [
+        "Beautiful.ai"
+      ],
+      "none": [
+        "PowerPoint"
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "niche": "Marketing AI",
+    "query": "Which AI tool generates marketing copy like ads and email campaigns?",
+    "expected_tools": [
+      "Copy.ai",
+      "Jasper"
+    ],
+    "expected_answer": {
+      "business_name": "Copy.ai",
+      "capability": "AI-powered marketing and sales copy generation",
+      "official_website": "https://www.copy.ai/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Grammarly",
+        "reason": "Editing, not generation."
+      },
+      {
+        "business_name": "ChatGPT",
+        "reason": "General-purpose."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Copy.ai only writes blogs.",
+      "correct_response_behavior": "Explain it supports many marketing formats."
+    },
+    "graded_relevance": {
+      "high": [
+        "Copy.ai",
+        "Jasper"
+      ],
+      "medium": [],
+      "none": [
+        "Grammarly"
+      ]
+    }
+  },
+  {
+    "id": 10,
+    "niche": "Brand Content",
+    "query": "Which AI platform helps teams create brand-consistent long-form content?",
+    "expected_tools": [
+      "Jasper"
+    ],
+    "expected_answer": {
+      "business_name": "Jasper",
+      "capability": "Brand-aligned AI content generation",
+      "official_website": "https://www.jasper.ai/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Medium",
+        "reason": "Publishing platform."
+      },
+      {
+        "business_name": "WordPress",
+        "reason": "CMS without AI writing."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Jasper replaces human writers.",
+      "correct_response_behavior": "Clarify Jasper assists writers."
+    },
+    "graded_relevance": {
+      "high": [
+        "Jasper"
+      ],
+      "medium": [
+        "Copy.ai"
+      ],
+      "none": [
+        "Medium"
+      ]
+    }
+  },
+  {
+    "id": 11,
+    "niche": "AI Research",
+    "query": "Which AI research assistant gives direct answers with cited sources?",
+    "expected_tools": [
+      "Perplexity",
+      "Consensus"
+    ],
+    "expected_answer": {
+      "business_name": "Perplexity",
+      "capability": "AI-powered research answers with citations",
+      "official_website": "https://www.perplexity.ai/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Google Search",
+        "reason": "Primarily link-based search results."
+      },
+      {
+        "business_name": "Wikipedia",
+        "reason": "Static encyclopedia content."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Perplexity AI answers without sources.",
+      "correct_response_behavior": "Clarify that Perplexity provides citations."
+    },
+    "graded_relevance": {
+      "high": [
+        "Perplexity",
+        "Consensus"
+      ],
+      "medium": [
+        "You"
+      ],
+      "none": [
+        "Google Search"
+      ]
+    }
+  },
+  {
+    "id": 12,
+    "niche": "AI Video Editing",
+    "query": "Which AI tool allows creators to remove video backgrounds and generate effects automatically?",
+    "expected_tools": [
+      "Runway",
+      "Topaz Video AI",
+      "invideo AI"
+    ],
+    "expected_answer": {
+      "business_name": "Runway",
+      "capability": "AI-powered video editing and generation",
+      "official_website": "https://runwayml.com/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Adobe Premiere Pro",
+        "reason": "Traditional editing without AI-first workflow."
+      },
+      {
+        "business_name": "Final Cut Pro",
+        "reason": "Manual video editing software."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Runway is only for image editing.",
+      "correct_response_behavior": "Clarify it supports advanced video editing."
+    },
+    "graded_relevance": {
+      "high": [
+        "Runway",
+        "Topaz Video AI",
+        "invideo AI"
+      ],
+      "medium": [
+        "CapCut"
+      ],
+      "none": [
+        "Adobe Premiere Pro"
+      ]
+    }
+  },
+  {
+    "id": 13,
+    "niche": "AI Audio Editing",
+    "query": "What AI tool lets users edit audio by editing the transcript text?",
+    "expected_tools": [
+      "Descript"
+    ],
+    "expected_answer": {
+      "business_name": "Descript",
+      "capability": "Text-based AI audio and video editing",
+      "official_website": "https://www.descript.com/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Audacity",
+        "reason": "Waveform-based manual editing."
+      },
+      {
+        "business_name": "GarageBand",
+        "reason": "Music creation, not transcript editing."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Descript only transcribes audio.",
+      "correct_response_behavior": "Explain Descript also edits audio and video."
+    },
+    "graded_relevance": {
+      "high": [
+        "Descript"
+      ],
+      "medium": [],
+      "none": [
+        "Audacity"
+      ]
+    }
+  },
+  {
+    "id": 14,
+    "niche": "AI Video Marketing",
+    "query": "Which AI tool converts blog posts into short marketing videos?",
+    "expected_tools": [
+      "Pictory",
+      "Lumen5",
+      "Video to Blog",
+      "quso.ai",
+      "2short.ai"
+    ],
+    "expected_answer": {
+      "business_name": "Pictory",
+      "capability": "Text-to-video AI generation",
+      "official_website": "https://pictory.ai/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Canva",
+        "reason": "Design-first, not automated text-to-video."
+      },
+      {
+        "business_name": "InVideo",
+        "reason": "Template-based editing."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Pictory requires manual video editing.",
+      "correct_response_behavior": "Clarify videos are generated automatically."
+    },
+    "graded_relevance": {
+      "high": [
+        "Pictory",
+        "Lumen5",
+        "Video to Blog",
+        "quso.ai",
+        "2short.ai"
+      ],
+      "medium": [
+        "Fliki"
+      ],
+      "none": [
+        "InVideo"
+      ]
+    }
+  },
+  {
+    "id": 15,
+    "niche": "AI Avatar Video",
+    "query": "Which AI platform creates videos using realistic AI avatars from text?",
+    "expected_tools": [
+      "Synthesia",
+      "Hour One",
+      "AI Studios",
+      "invideo AI"
+    ],
+    "expected_answer": {
+      "business_name": "Synthesia",
+      "capability": "AI avatar-based video generation",
+      "official_website": "https://www.synthesia.io/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Loom",
+        "reason": "Screen recording tool."
+      },
+      {
+        "business_name": "Zoom",
+        "reason": "Video conferencing platform."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Synthesia uses human presenters.",
+      "correct_response_behavior": "Clarify videos are generated using AI avatars."
+    },
+    "graded_relevance": {
+      "high": [
+        "Synthesia",
+        "Hour One",
+        "AI Studios",
+        "invideo AI"
+      ],
+      "medium": [
+        "Creative Reality Studio (D-ID)"
+      ],
+      "none": [
+        "Zoom"
+      ]
+    }
+  },
+  {
+    "id": 16,
+    "niche": "Workflow Automation",
+    "query": "Which no-code tool automates workflows between thousands of apps?",
+    "expected_tools": [
+      "Zapier",
+      "Make"
+    ],
+    "expected_answer": {
+      "business_name": "Zapier",
+      "capability": "No-code workflow automation",
+      "official_website": "https://zapier.com/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Slack",
+        "reason": "Communication tool."
+      },
+      {
+        "business_name": "Airtable",
+        "reason": "Database platform."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Zapier writes custom code.",
+      "correct_response_behavior": "Clarify it is no-code automation."
+    },
+    "graded_relevance": {
+      "high": [
+        "Zapier",
+        "Make"
+      ],
+      "medium": [
+        "n8n"
+      ],
+      "none": [
+        "Slack"
+      ]
+    }
+  },
+  {
+    "id": 17,
+    "niche": "AI Presentations",
+    "query": "Which AI presentation tool automatically adjusts slide layouts?",
+    "expected_tools": [
+      "Gamma",
+      "Plus AI"
+    ],
+    "expected_answer": {
+      "business_name": "Gamma",
+      "capability": "AI-assisted presentation design",
+      "official_website": "https://gamma.app/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "PowerPoint",
+        "reason": "Manual slide design."
+      },
+      {
+        "business_name": "Keynote",
+        "reason": "No AI layout intelligence."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Gamma only provides templates.",
+      "correct_response_behavior": "Clarify layouts auto-adjust dynamically."
+    },
+    "graded_relevance": {
+      "high": [
+        "Gamma",
+        "Plus AI"
+      ],
+      "medium": [
+        "Tome"
+      ],
+      "none": [
+        "PowerPoint"
+      ]
+    }
+  },
+  {
+    "id": 18,
+    "niche": "AI Writing",
+    "query": "Which AI writing assistant provides grammar, clarity, and tone suggestions?",
+    "expected_tools": [
+      "Quillbot",
+      "Copy.ai",
+      "Jetwriter AI",
+      "MyEssayWriter.ai"
+    ],
+    "expected_answer": {
+      "business_name": "Quillbot",
+      "capability": "AI-powered writing enhancement",
+      "official_website": "https://quillbot.com/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Hemingway App",
+        "reason": "Rule-based readability checker."
+      },
+      {
+        "business_name": "Word",
+        "reason": "Basic spell checking."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Quillbot writes full articles automatically.",
+      "correct_response_behavior": "Clarify it enhances user-written text."
+    },
+    "graded_relevance": {
+      "high": [
+        "Quillbot",
+        "Copy.ai",
+        "Jetwriter AI",
+        "MyEssayWriter.ai"
+      ],
+      "medium": [
+        "Penelope AI"
+      ],
+      "none": [
+        "Hemingway App"
+      ]
+    }
+  },
+  {
+    "id": 19,
+    "niche": "Meeting Transcription",
+    "query": "Which AI tool provides automatic meeting transcripts and summaries?",
+    "expected_tools": [
+      "Fireflies.ai",
+      "MeetGeek",
+      "Fellow"
+    ],
+    "expected_answer": {
+      "business_name": "Fireflies.ai",
+      "capability": "AI meeting transcription and summaries",
+      "official_website": "https://fireflies.ai/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Zoom",
+        "reason": "Meeting platform."
+      },
+      {
+        "business_name": "Google Meet",
+        "reason": "Basic captions only."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Fireflies.ai replaces video conferencing tools.",
+      "correct_response_behavior": "Clarify it integrates with them."
+    },
+    "graded_relevance": {
+      "high": [
+        "Fireflies.ai",
+        "MeetGeek",
+        "Fellow"
+      ],
+      "medium": [
+        "tl;dv"
+      ],
+      "none": [
+        "Google Meet"
+      ]
+    }
+  },
+  {
+    "id": 20,
+    "niche": "AI Meetings",
+    "query": "Which AI meeting assistant records, transcribes, and extracts action items?",
+    "expected_tools": [
+      "Fireflies.ai",
+      "MeetGeek"
+    ],
+    "expected_answer": {
+      "business_name": "Fireflies.ai",
+      "capability": "AI meeting recording and insights",
+      "official_website": "https://fireflies.ai/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Notion AI",
+        "reason": "Workspace-based tool."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Fireflies.ai only works on Zoom.",
+      "correct_response_behavior": "Clarify it supports multiple platforms."
+    },
+    "graded_relevance": {
+      "high": [
+        "Fireflies.ai",
+        "MeetGeek"
+      ],
+      "medium": [
+        "Fellow"
+      ],
+      "none": [
+        "Notion AI"
+      ]
+    }
+  },
+  {
+    "id": 21,
+    "niche": "AI Image Generation",
+    "query": "Which AI tool generates artistic images from text prompts?",
+    "expected_tools": [
+      "Midjourney",
+      "DALL\u00b7E 3",
+      "Stable Diffusion"
+    ],
+    "expected_answer": {
+      "business_name": "Midjourney",
+      "capability": "Text-to-image AI generation",
+      "official_website": "https://www.midjourney.com/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Photoshop",
+        "reason": "Manual image editing."
+      },
+      {
+        "business_name": "Canva",
+        "reason": "Template-based design."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Midjourney is a photo editor.",
+      "correct_response_behavior": "Clarify it generates images from prompts."
+    },
+    "graded_relevance": {
+      "high": [
+        "Midjourney",
+        "DALL\u00b7E 3",
+        "Stable Diffusion"
+      ],
+      "medium": [
+        "Leonardo AI"
+      ],
+      "none": [
+        "Photoshop"
+      ]
+    }
+  },
+  {
+    "id": 22,
+    "niche": "AI Image Generation",
+    "query": "Which OpenAI tool generates images from text descriptions?",
+    "expected_tools": [
+      "DALL\u00b7E 3"
+    ],
+    "expected_answer": {
+      "business_name": "DALL\u00b7E 3",
+      "capability": "AI image generation from text",
+      "official_website": "https://openai.com/dall-e"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Stable Diffusion",
+        "reason": "Different ecosystem and deployment."
+      },
+      {
+        "business_name": "Midjourney",
+        "reason": "Not operated by OpenAI."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "DALL\u00b7E edits existing photos only.",
+      "correct_response_behavior": "Clarify it generates new images."
+    },
+    "graded_relevance": {
+      "high": [
+        "DALL\u00b7E 3"
+      ],
+      "medium": [],
+      "none": [
+        "Stable Diffusion"
+      ]
+    }
+  },
+  {
+    "id": 23,
+    "niche": "AI Design",
+    "query": "Which design platform offers AI-powered assistance for non-designers?",
+    "expected_tools": [
+      "Canva"
+    ],
+    "expected_answer": {
+      "business_name": "Canva",
+      "capability": "AI-assisted graphic design",
+      "official_website": "https://www.canva.com/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Figma",
+        "reason": "Professional design tool."
+      },
+      {
+        "business_name": "Illustrator",
+        "reason": "Advanced vector software."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Canva AI requires design expertise.",
+      "correct_response_behavior": "Clarify it is beginner-friendly."
+    },
+    "graded_relevance": {
+      "high": [
+        "Canva"
+      ],
+      "medium": [
+        "Microsoft Designer"
+      ],
+      "none": [
+        "Illustrator"
+      ]
+    }
+  },
+  {
+    "id": 24,
+    "niche": "AI Development",
+    "query": "Which browser-based platform allows users to code and deploy with AI assistance?",
+    "expected_tools": [
+      "Replit",
+      "GPTAgent",
+      "Gooey.AI"
+    ],
+    "expected_answer": {
+      "business_name": "Replit",
+      "capability": "AI-assisted coding and cloud development",
+      "official_website": "https://replit.com/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "VS Code",
+        "reason": "Local IDE only."
+      },
+      {
+        "business_name": "GitHub",
+        "reason": "Code hosting platform."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Replit replaces all local development.",
+      "correct_response_behavior": "Clarify it complements local tools."
+    },
+    "graded_relevance": {
+      "high": [
+        "Replit",
+        "GPTAgent",
+        "Gooey.AI"
+      ],
+      "medium": [
+        "Windsurf"
+      ],
+      "none": [
+        "VS Code"
+      ]
+    }
+  },
+  {
+    "id": 25,
+    "niche": "AI Customer Support",
+    "query": "Which AI platform helps businesses deploy chatbots for customer support without coding?",
+    "expected_tools": [
+      "Chatbase",
+      "Intercom"
+    ],
+    "expected_answer": {
+      "business_name": "Chatbase",
+      "capability": "AI-powered customer support chatbots",
+      "official_website": "https://www.chatbase.co/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Zendesk",
+        "reason": "Primarily ticket-based support system."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Chatbase requires custom backend development.",
+      "correct_response_behavior": "Clarify it is no-code and easy to deploy."
+    },
+    "graded_relevance": {
+      "high": [
+        "Chatbase",
+        "Intercom"
+      ],
+      "medium": [
+        "Zendesk"
+      ],
+      "none": []
+    }
+  },
+  {
+    "id": 26,
+    "niche": "AI Sales",
+    "query": "Which AI tool analyzes sales calls to provide coaching insights?",
+    "expected_tools": [
+      "Gong",
+      "Chorus",
+      "Rows AI",
+      "Julius AI"
+    ],
+    "expected_answer": {
+      "business_name": "Gong",
+      "capability": "AI-powered sales conversation intelligence",
+      "official_website": "https://www.gong.io/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Zoom",
+        "reason": "Video conferencing tool."
+      },
+      {
+        "business_name": "Salesforce",
+        "reason": "CRM, not call analysis focused."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Gong replaces CRMs.",
+      "correct_response_behavior": "Clarify it integrates with CRMs."
+    },
+    "graded_relevance": {
+      "high": [
+        "Gong",
+        "Chorus",
+        "Rows AI",
+        "Julius AI"
+      ],
+      "medium": [
+        "Outreach"
+      ],
+      "none": [
+        "Zoom"
+      ]
+    }
+  },
+  {
+    "id": 27,
+    "niche": "AI Data Analysis",
+    "query": "Which AI tool lets users analyze datasets using natural language queries?",
+    "expected_tools": [
+      "Julius AI"
+    ],
+    "expected_answer": {
+      "business_name": "Julius AI",
+      "capability": "No-code AI data analysis and prediction",
+      "official_website": "https://julius.ai/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Excel",
+        "reason": "Manual spreadsheet analysis."
+      },
+      {
+        "business_name": "Tableau",
+        "reason": "Visualization-first analytics."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Julius AI requires coding knowledge.",
+      "correct_response_behavior": "Clarify it is no-code."
+    },
+    "graded_relevance": {
+      "high": [
+        "Julius AI"
+      ],
+      "medium": [
+        "Rows AI"
+      ],
+      "none": [
+        "Excel"
+      ]
+    }
+  },
+  {
+    "id": 28,
+    "niche": "AI Finance",
+    "query": "Which AI platform helps with financial analysis and stock market insights?",
+    "expected_tools": [
+      "Trendspider",
+      "hoopsAI",
+      "MarketAlerts.ai",
+      "Uptrends.ai"
+    ],
+    "expected_answer": {
+      "business_name": "Trendspider",
+      "capability": "AI-driven financial analysis and trading insights",
+      "official_website": "https://trendspider.com/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "QuickBooks",
+        "reason": "Accounting software."
+      },
+      {
+        "business_name": "Stripe",
+        "reason": "Payment processor."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Trendspider processes payments.",
+      "correct_response_behavior": "Clarify it analyzes market data."
+    },
+    "graded_relevance": {
+      "high": [
+        "Trendspider",
+        "hoopsAI",
+        "MarketAlerts.ai",
+        "Uptrends.ai"
+      ],
+      "medium": [
+        "MarketAlerts.ai"
+      ],
+      "none": [
+        "QuickBooks"
+      ]
+    }
+  },
+  {
+    "id": 29,
+    "niche": "AI Education",
+    "query": "Which AI tutoring platform provides personalized learning assistance?",
+    "expected_tools": [
+      "Socratic by Google",
+      "TutorAI",
+      "Mindgrasp AI"
+    ],
+    "expected_answer": {
+      "business_name": "Socratic by Google",
+      "capability": "AI-powered educational assistance",
+      "official_website": "https://socratic.org/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Khan Academy",
+        "reason": "Curriculum-based learning."
+      },
+      {
+        "business_name": "Coursera",
+        "reason": "Course platform."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Socratic replaces teachers.",
+      "correct_response_behavior": "Clarify it supports students."
+    },
+    "graded_relevance": {
+      "high": [
+        "Socratic by Google",
+        "TutorAI",
+        "Mindgrasp AI"
+      ],
+      "medium": [
+        "TutorAI"
+      ],
+      "none": [
+        "Coursera"
+      ]
+    }
+  },
+  {
+    "id": 30,
+    "niche": "AI SEO",
+    "query": "Which AI tool optimizes website content for search engine rankings?",
+    "expected_tools": [
+      "Frase",
+      "LongShot"
+    ],
+    "expected_answer": {
+      "business_name": "Frase",
+      "capability": "AI-driven SEO content optimization",
+      "official_website": "https://frase.io/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Google Analytics",
+        "reason": "Traffic analytics tool."
+      },
+      {
+        "business_name": "Ahrefs",
+        "reason": "SEO research platform."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Frase handles backlinks.",
+      "correct_response_behavior": "Clarify it focuses on content optimization."
+    },
+    "graded_relevance": {
+      "high": [
+        "Frase",
+        "LongShot"
+      ],
+      "medium": [
+        "AithorSEO"
+      ],
+      "none": [
+        "Google Analytics"
+      ]
+    }
+  },
+  {
+    "id": 31,
+    "niche": "AI Social Media",
+    "query": "Which AI platform schedules and optimizes social media posts?",
+    "expected_tools": [
+      "Hootsuite",
+      "quso.ai",
+      "Blaze"
+    ],
+    "expected_answer": {
+      "business_name": "Hootsuite",
+      "capability": "AI-assisted social media management",
+      "official_website": "https://www.hootsuite.com/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Twitter",
+        "reason": "Social media network."
+      },
+      {
+        "business_name": "Instagram",
+        "reason": "Content platform."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Hootsuite creates viral content automatically.",
+      "correct_response_behavior": "Clarify it assists with optimization."
+    },
+    "graded_relevance": {
+      "high": [
+        "Hootsuite",
+        "quso.ai",
+        "Blaze"
+      ],
+      "medium": [
+        "HubSpot"
+      ],
+      "none": [
+        "Instagram"
+      ]
+    }
+  },
+  {
+    "id": 32,
+    "niche": "AI Voice",
+    "query": "Which AI tool generates realistic human-like voiceovers from text?",
+    "expected_tools": [
+      "Synthesys",
+      "Fliki",
+      "Synthesia",
+      "AI Studios"
+    ],
+    "expected_answer": {
+      "business_name": "Synthesys",
+      "capability": "AI text-to-speech voice generation",
+      "official_website": "https://synthesys.io/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Audacity",
+        "reason": "Audio editing tool."
+      },
+      {
+        "business_name": "GarageBand",
+        "reason": "Music production software."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Synthesys records human voices.",
+      "correct_response_behavior": "Clarify voices are AI-generated."
+    },
+    "graded_relevance": {
+      "high": [
+        "Synthesys",
+        "Fliki",
+        "Synthesia",
+        "AI Studios"
+      ],
+      "medium": [
+        "Papercup"
+      ],
+      "none": [
+        "Audacity"
+      ]
+    }
+  },
+  {
+    "id": 33,
+    "niche": "AI Coding Assistant",
+    "query": "Which AI coding assistant suggests code directly inside IDEs?",
+    "expected_tools": [
+      "GitHub Copilot",
+      "Tabnine"
+    ],
+    "expected_answer": {
+      "business_name": "GitHub Copilot",
+      "capability": "AI-powered code completion",
+      "official_website": "https://github.com/features/copilot"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "ChatGPT",
+        "reason": "Not IDE-native by default."
+      },
+      {
+        "business_name": "Stack Overflow",
+        "reason": "Human Q&A platform."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Copilot writes production-ready code without review.",
+      "correct_response_behavior": "Clarify code must be reviewed by developers."
+    },
+    "graded_relevance": {
+      "high": [
+        "GitHub Copilot",
+        "Tabnine"
+      ],
+      "medium": [
+        "Windsurf",
+        "CodeGeeX"
+      ],
+      "none": [
+        "Stack Overflow"
+      ]
+    }
+  },
+  {
+    "id": 34,
+    "niche": "AI Spreadsheets",
+    "query": "Which AI tool helps generate Excel formulas from natural language?",
+    "expected_tools": [
+      "Excel Formula Bot",
+      "GPTExcel",
+      "SheetAI.app"
+    ],
+    "expected_answer": {
+      "business_name": "Excel Formula Bot",
+      "capability": "AI-powered formula generation for spreadsheets",
+      "official_website": "https://excelformulabot.com/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Microsoft Excel",
+        "reason": "Manual formula entry."
+      },
+      {
+        "business_name": "Google Sheets",
+        "reason": "No AI formula generation."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Excel Formula Bot replaces Excel.",
+      "correct_response_behavior": "Clarify it works alongside Excel."
+    },
+    "graded_relevance": {
+      "high": [
+        "Excel Formula Bot",
+        "GPTExcel",
+        "SheetAI.app"
+      ],
+      "medium": [
+        "Rows AI"
+      ],
+      "none": [
+        "Microsoft Excel"
+      ]
+    }
+  },
+  {
+    "id": 35,
+    "niche": "AI Logo Design",
+    "query": "Which AI tool generates professional logos for businesses?",
+    "expected_tools": [
+      "Looka",
+      "LogoAI"
+    ],
+    "expected_answer": {
+      "business_name": "Looka",
+      "capability": "AI-powered logo design",
+      "official_website": "https://looka.com/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Canva",
+        "reason": "General design tool."
+      },
+      {
+        "business_name": "Photoshop",
+        "reason": "Manual design software."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Looka requires design skills.",
+      "correct_response_behavior": "Clarify it generates logos automatically."
+    },
+    "graded_relevance": {
+      "high": [
+        "Looka",
+        "LogoAI"
+      ],
+      "medium": [
+        "Namelix",
+        "LogoFast"
+      ],
+      "none": [
+        "Photoshop"
+      ]
+    }
+  },
+  {
+    "id": 36,
+    "niche": "AI Website Builder",
+    "query": "Which AI tool builds websites automatically from text descriptions?",
+    "expected_tools": [
+      "Durable.co",
+      "Wix ADI",
+      "10Web",
+      "Pineapple Builder",
+      "Hostinger AI Website Builder"
+    ],
+    "expected_answer": {
+      "business_name": "Durable.co",
+      "capability": "AI-powered website generation",
+      "official_website": "https://durable.co/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "WordPress",
+        "reason": "Manual website building."
+      },
+      {
+        "business_name": "Squarespace",
+        "reason": "Template-based."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Durable.co requires coding.",
+      "correct_response_behavior": "Clarify it generates sites from prompts."
+    },
+    "graded_relevance": {
+      "high": [
+        "Durable.co",
+        "Wix ADI",
+        "10Web",
+        "Pineapple Builder",
+        "Hostinger AI Website Builder"
+      ],
+      "medium": [
+        "Mixo",
+        "B12"
+      ],
+      "none": [
+        "WordPress"
+      ]
+    }
+  },
+  {
+    "id": 37,
+    "niche": "AI Translation",
+    "query": "Which AI tool provides accurate real-time language translation?",
+    "expected_tools": [
+      "DeepL Translator",
+      "Google Translate",
+      "Microsoft Translator",
+      "ZipZap"
+    ],
+    "expected_answer": {
+      "business_name": "DeepL Translator",
+      "capability": "AI-powered language translation",
+      "official_website": "https://www.deepl.com/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Duolingo",
+        "reason": "Language learning app."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "DeepL teaches languages.",
+      "correct_response_behavior": "Clarify it translates, not teaches."
+    },
+    "graded_relevance": {
+      "high": [
+        "DeepL Translator",
+        "Google Translate",
+        "Microsoft Translator",
+        "ZipZap"
+      ],
+      "medium": [
+        "Microsoft Translator"
+      ],
+      "none": [
+        "Duolingo"
+      ]
+    }
+  },
+  {
+    "id": 38,
+    "niche": "AI Chatbot",
+    "query": "Which AI conversational assistant is best for general Q&A and reasoning?",
+    "expected_tools": [
+      "ChatGPT",
+      "Claude",
+      "Google Gemini"
+    ],
+    "expected_answer": {
+      "business_name": "ChatGPT",
+      "capability": "AI conversational assistant",
+      "official_website": "https://chat.openai.com/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Siri",
+        "reason": "Voice assistant with limited depth."
+      },
+      {
+        "business_name": "Alexa",
+        "reason": "Smart home assistant."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "ChatGPT has real-time internet access.",
+      "correct_response_behavior": "Clarify browsing depends on version/plugins."
+    },
+    "graded_relevance": {
+      "high": [
+        "ChatGPT",
+        "Claude",
+        "Google Gemini"
+      ],
+      "medium": [
+        "Perplexity"
+      ],
+      "none": [
+        "Siri"
+      ]
+    }
+  },
+  {
+    "id": 39,
+    "niche": "AI Email",
+    "query": "Which AI tool helps write and manage email communications faster?",
+    "expected_tools": [
+      "Superhuman",
+      "Shortwave",
+      "Neural Newsletters",
+      "Jetwriter AI"
+    ],
+    "expected_answer": {
+      "business_name": "Superhuman",
+      "capability": "AI-powered email productivity",
+      "official_website": "https://superhuman.com/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "Gmail",
+        "reason": "Basic email client."
+      },
+      {
+        "business_name": "Outlook",
+        "reason": "Traditional email."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "Superhuman replaces email.",
+      "correct_response_behavior": "Clarify it enhances email workflow."
+    },
+    "graded_relevance": {
+      "high": [
+        "Superhuman",
+        "Shortwave",
+        "Neural Newsletters",
+        "Jetwriter AI"
+      ],
+      "medium": [
+        "Addy AI"
+      ],
+      "none": [
+        "Gmail"
+      ]
+    }
+  },
+  {
+    "id": 40,
+    "niche": "AI Prompt Engineering",
+    "query": "Which platform helps users discover and optimize AI prompts?",
+    "expected_tools": [
+      "PromptHero",
+      "PromptBase"
+    ],
+    "expected_answer": {
+      "business_name": "PromptHero",
+      "capability": "AI prompt discovery and marketplace",
+      "official_website": "https://prompthero.com/"
+    },
+    "hard_negative_distractors": [
+      {
+        "business_name": "ChatGPT",
+        "reason": "Uses prompts, not a prompt library."
+      }
+    ],
+    "hallucination_trap": {
+      "false_assumption": "PromptHero generates images.",
+      "correct_response_behavior": "Clarify it curates prompts for image generators."
+    },
+    "graded_relevance": {
+      "high": [
+        "PromptHero",
+        "PromptBase"
+      ],
+      "medium": [
+        "PromptPerfect",
+        "Public Prompts"
+      ],
+      "none": [
+        "ChatGPT"
+      ]
+    }
+  },
+  {
+    "id": 41,
+    "niche": "AI Image Generation",
+    "query": "Which AI tool creates art from text prompts without requiring artistic skills?",
+    "expected_tools": [
+      "NightCafe Studio",
+      "Dezgo",
+      "DALL\u00b7E 3"
+    ],
+    "expected_answer": {
+      "business_name": "NightCafe Studio",
+      "capability": "AI-driven art creation from text prompts",
+      "official_website": "https://nightcafe.studio"
+    }
+  },
+  {
+    "id": 42,
+    "niche": "AI Video Creation",
+    "query": "Which AI tool converts written articles into engaging video content?",
+    "expected_tools": [
+      "Lumen5",
+      "InVideo",
+      "Pictory"
+    ],
+    "expected_answer": {
+      "business_name": "Lumen5",
+      "capability": "Transform text into dynamic videos",
+      "official_website": "https://lumen5.com"
+    }
+  },
+  {
+    "id": 43,
+    "niche": "AI Code Review",
+    "query": "Which AI tool automates code reviews and generates tests for developers?",
+    "expected_tools": [
+      "Qodo",
+      "Codium",
+      "Sourcery"
+    ],
+    "expected_answer": {
+      "business_name": "Qodo",
+      "capability": "Automates code reviews and test generation",
+      "official_website": "https://qodo.ai"
+    }
+  },
+  {
+    "id": 44,
+    "niche": "AI Website Builder",
+    "query": "Which AI platform builds complete websites from simple text descriptions?",
+    "expected_tools": [
+      "Wix ADI",
+      "Durable.co",
+      "Limecube"
+    ],
+    "expected_answer": {
+      "business_name": "Wix ADI",
+      "capability": "AI-driven website creation",
+      "official_website": "https://wix.com"
+    }
+  },
+  {
+    "id": 45,
+    "niche": "AI Paraphrasing",
+    "query": "Which AI writing tool helps paraphrase and rewrite text while maintaining meaning?",
+    "expected_tools": [
+      "Quillbot",
+      "Wordtune",
+      "Paraphraser"
+    ],
+    "expected_answer": {
+      "business_name": "Quillbot",
+      "capability": "AI-powered paraphrasing and text enhancement",
+      "official_website": "https://quillbot.com"
+    }
+  },
+  {
+    "id": 46,
+    "niche": "AI Multimodal",
+    "query": "Which AI model can reason across text, images, audio, and video simultaneously?",
+    "expected_tools": [
+      "Google Gemini",
+      "GPT-4",
+      "Claude"
+    ],
+    "expected_answer": {
+      "business_name": "Google Gemini",
+      "capability": "Multimodal reasoning across different media types",
+      "official_website": "https://gemini.google.com"
+    }
+  },
+  {
+    "id": 47,
+    "niche": "AI Avatar Video",
+    "query": "Which AI creates realistic talking avatar videos from text scripts?",
+    "expected_tools": [
+      "Creative Reality Studio (D-ID)",
+      "Synthesia",
+      "HeyGen"
+    ],
+    "expected_answer": {
+      "business_name": "Creative Reality Studio (D-ID)",
+      "capability": "AI-driven avatar animation",
+      "official_website": "https://d-id.com"
+    }
+  },
+  {
+    "id": 48,
+    "niche": "AI Workflow Automation",
+    "query": "Which no-code platform automates repetitive business workflows without coding?",
+    "expected_tools": [
+      "Parabola",
+      "Zapier",
+      "Make"
+    ],
+    "expected_answer": {
+      "business_name": "Parabola",
+      "capability": "Streamline workflows and automate tasks",
+      "official_website": "https://parabola.io"
+    }
+  },
+  {
+    "id": 49,
+    "niche": "AI Research",
+    "query": "Which AI tool helps researchers summarize and understand academic papers?",
+    "expected_tools": [
+      "PaperBrain",
+      "Semantic Scholar",
+      "Elicit"
+    ],
+    "expected_answer": {
+      "business_name": "PaperBrain",
+      "capability": "AI-driven academic paper summarization",
+      "official_website": "https://paperbrain.com"
+    }
+  },
+  {
+    "id": 50,
+    "niche": "AI Marketing Copy",
+    "query": "Which AI generates high-converting marketing copy with performance predictions?",
+    "expected_tools": [
+      "Anyword",
+      "Jasper",
+      "Copy.ai"
+    ],
+    "expected_answer": {
+      "business_name": "Anyword",
+      "capability": "Data-driven marketing text generation",
+      "official_website": "https://anyword.com"
+    }
+  },
+  {
+    "id": 51,
+    "niche": "AI Customer Support",
+    "query": "Which AI chatbot platform handles customer queries automatically?",
+    "expected_tools": [
+      "Chatbase",
+      "Intercom",
+      "Drift"
+    ],
+    "expected_answer": {
+      "business_name": "Chatbase",
+      "capability": "AI agents for customer query handling",
+      "official_website": "https://chatbase.co"
+    }
+  },
+  {
+    "id": 52,
+    "niche": "AI Bookkeeping",
+    "query": "Which AI tool automates bookkeeping and accounting tasks for businesses?",
+    "expected_tools": [
+      "Booke AI",
+      "Vic.ai",
+      "Docyt"
+    ],
+    "expected_answer": {
+      "business_name": "Booke AI",
+      "capability": "AI-driven bookkeeping automation",
+      "official_website": "https://booke.ai"
+    }
+  },
+  {
+    "id": 53,
+    "niche": "AI 3D Content",
+    "query": "Which AI generates 3D product videos for e-commerce and marketing?",
+    "expected_tools": [
+      "Lumiere 3D",
+      "Kaedim",
+      "Spline"
+    ],
+    "expected_answer": {
+      "business_name": "Lumiere 3D",
+      "capability": "Generate immersive 3D videos for e-commerce",
+      "official_website": "https://lumiere3d.ai"
+    }
+  },
+  {
+    "id": 54,
+    "niche": "AI Machine Learning",
+    "query": "Which no-code platform lets users build machine learning models without programming?",
+    "expected_tools": [
+      "Liner.ai",
+      "Obviously AI",
+      "Teachable Machine"
+    ],
+    "expected_answer": {
+      "business_name": "Liner.ai",
+      "capability": "Code-free machine learning model building",
+      "official_website": "https://liner.ai"
+    }
+  },
+  {
+    "id": 55,
+    "niche": "AI Business Travel",
+    "query": "Which AI assistant simplifies business travel planning and management?",
+    "expected_tools": [
+      "Swifty",
+      "TripActions",
+      "TravelPerk"
+    ],
+    "expected_answer": {
+      "business_name": "Swifty",
+      "capability": "AI assistant for business travel",
+      "official_website": "https://swifty.so"
+    }
+  }
+]

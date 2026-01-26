@@ -1,0 +1,37 @@
+[
+  {
+    "id": "scenario_1",
+    "niche": "AI Writing",
+    "query": "I need a tool to help me write blog posts faster and generate ideas for content",
+    "expected_tools": [1, 5],
+    "description": "User needs AI-powered writing assistance for content creation"
+  },
+  {
+    "id": "scenario_2",
+    "niche": "Workflow Automation",
+    "query": "Looking for a way to connect my apps and automate repetitive tasks without coding",
+    "expected_tools": [2, 4],
+    "description": "User wants to automate business processes between different applications"
+  },
+  {
+    "id": "scenario_3",
+    "niche": "Graphic Design",
+    "query": "I need to create professional graphics for social media posts and marketing materials",
+    "expected_tools": [3, 5],
+    "description": "User needs design tools for creating visual content"
+  },
+  {
+    "id": "scenario_4",
+    "niche": "Project Management",
+    "query": "My team needs a better way to organize tasks, track progress, and collaborate on projects",
+    "expected_tools": [4, 5, 7],
+    "description": "Team needs project management and collaboration tools"
+  },
+  {
+    "id": "scenario_5",
+    "niche": "Email Marketing",
+    "query": "I want to send automated email campaigns and track their performance",
+    "expected_tools": [6, 2],
+    "description": "Business needs email marketing automation and analytics"
+  }
+]

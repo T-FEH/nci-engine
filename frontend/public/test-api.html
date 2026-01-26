@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCI Engine - API Test</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: system-ui, -apple-system, sans-serif; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .card { 
+            background: white; 
+            border-radius: 1rem; 
+            padding: 2rem; 
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        h1 { color: #667eea; margin-bottom: 1rem; }
+        h2 { color: #333; margin-bottom: 1rem; font-size: 1.5rem; }
+        button { 
+            background: #667eea; 
+            color: white; 
+            border: none; 
+            padding: 0.75rem 1.5rem; 
+            border-radius: 0.5rem; 
+            cursor: pointer; 
+            font-size: 1rem;
+            margin-right: 1rem;
+            margin-bottom: 0.5rem;
+            transition: background 0.2s;
+        }
+        button:hover { background: #5568d3; }
+        button:disabled { background: #ccc; cursor: not-allowed; }
+        .status { 
+            padding: 0.5rem 1rem; 
+            border-radius: 0.5rem; 
+            margin-bottom: 1rem; 
+            font-weight: 600;
+        }
+        .status.success { background: #d4edda; color: #155724; }
+        .status.error { background: #f8d7da; color: #721c24; }
+        .status.loading { background: #fff3cd; color: #856404; }
+        pre { 
+            background: #f5f5f5; 
+            padding: 1rem; 
+            border-radius: 0.5rem; 
+            overflow-x: auto; 
+            font-size: 0.875rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+        .metric { 
+            background: #f9fafb; 
+            padding: 1rem; 
+            border-radius: 0.5rem; 
+            border-left: 4px solid #667eea;
+        }
+        .metric-label { color: #666; font-size: 0.875rem; }
+        .metric-value { font-size: 1.5rem; font-weight: 600; color: #333; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>🚀 NCI Engine API Test Dashboard</h1>
+            <p style="color: #666; margin-bottom: 1rem;">Test the complete Next.js → FastAPI → PostgreSQL integration</p>
+        </div>
+
+        <div class="card">
+            <h2>1. Health Check</h2>
+            <button onclick="testHealth()">Test /health</button>
+            <div id="health-status"></div>
+            <pre id="health-result"></pre>
+        </div>
+
+        <div class="card">
+            <h2>2. Analysis History</h2>
+            <button onclick="testHistory()">Test /api/v1/analyze/history</button>
+            <div id="history-status"></div>
+            <div id="history-metrics" class="grid"></div>
+            <pre id="history-result"></pre>
+        </div>
+
+        <div class="card">
+            <h2>3. Evaluation Runs</h2>
+            <button onclick="testEvaluations()">Test /api/v1/evaluation/runs</button>
+            <div id="eval-status"></div>
+            <div id="eval-metrics" class="grid"></div>
+            <pre id="eval-result"></pre>
+        </div>
+
+        <div class="card">
+            <h2>4. Admin Metrics</h2>
+            <button onclick="testMetrics()">Test /api/v1/admin/metrics</button>
+            <div id="metrics-status"></div>
+            <pre id="metrics-result"></pre>
+        </div>
+
+        <div class="card">
+            <h2>5. Run All Tests</h2>
+            <button onclick="runAllTests()">Run All Tests</button>
+            <div id="all-status"></div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:8000';
+
+        function showStatus(elementId, type, message) {
+            const el = document.getElementById(elementId);
+            el.className = `status ${type}`;
+            el.textContent = message;
+        }
+
+        function showResult(elementId, data) {
+            const el = document.getElementById(elementId);
+            el.textContent = JSON.stringify(data, null, 2);
+        }
+
+        async function testHealth() {
+            showStatus('health-status', 'loading', '⏳ Testing...');
+            try {
+                const response = await fetch(`${API_BASE}/health`);
+                const data = await response.json();
+                showStatus('health-status', 'success', '✅ Health check passed');
+                showResult('health-result', data);
+            } catch (error) {
+                showStatus('health-status', 'error', `❌ Error: ${error.message}`);
+            }
+        }
+
+        async function testHistory() {
+            showStatus('history-status', 'loading', '⏳ Fetching analysis history...');
+            try {
+                const response = await fetch(`${API_BASE}/api/v1/analyze/history?limit=10`);
+                const data = await response.json();
+                showStatus('history-status', 'success', `✅ Found ${data.total} analyses`);
+                
+                // Show metrics
+                const metricsDiv = document.getElementById('history-metrics');
+                metricsDiv.innerHTML = `
+                    <div class="metric">
+                        <div class="metric-label">Total Analyses</div>
+                        <div class="metric-value">${data.total}</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Returned</div>
+                        <div class="metric-value">${data.items.length}</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Avg Duration</div>
+                        <div class="metric-value">${(data.items.reduce((sum, i) => sum + (i.duration_ms || 0), 0) / data.items.length / 1000).toFixed(2)}s</div>
+                    </div>
+                `;
+                
+                showResult('history-result', data);
+            } catch (error) {
+                showStatus('history-status', 'error', `❌ Error: ${error.message}`);
+            }
+        }
+
+        async function testEvaluations() {
+            showStatus('eval-status', 'loading', '⏳ Fetching evaluation runs...');
+            try {
+                const response = await fetch(`${API_BASE}/api/v1/evaluation/runs`);
+                const data = await response.json();
+                showStatus('eval-status', 'success', `✅ Found ${data.length} evaluation runs`);
+                
+                // Show metrics
+                const metricsDiv = document.getElementById('eval-metrics');
+                const avgPrecision = data.reduce((sum, r) => sum + r.avg_precision_at_5, 0) / data.length;
+                metricsDiv.innerHTML = `
+                    <div class="metric">
+                        <div class="metric-label">Total Runs</div>
+                        <div class="metric-value">${data.length}</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Avg Precision@5</div>
+                        <div class="metric-value">${(avgPrecision * 100).toFixed(1)}%</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Baseline Runs</div>
+                        <div class="metric-value">${data.filter(r => r.run_type === 'baseline').length}</div>
+                    </div>
+                `;
+                
+                showResult('eval-result', data);
+            } catch (error) {
+                showStatus('eval-status', 'error', `❌ Error: ${error.message}`);
+            }
+        }
+
+        async function testMetrics() {
+            showStatus('metrics-status', 'loading', '⏳ Fetching admin metrics...');
+            try {
+                const response = await fetch(`${API_BASE}/api/v1/admin/metrics?days=30`);
+                const data = await response.json();
+                showStatus('metrics-status', 'success', `✅ Found ${data.length} metric entries`);
+                showResult('metrics-result', data);
+            } catch (error) {
+                showStatus('metrics-status', 'error', `❌ Error: ${error.message}`);
+            }
+        }
+
+        async function runAllTests() {
+            showStatus('all-status', 'loading', '⏳ Running all tests...');
+            await testHealth();
+            await testHistory();
+            await testEvaluations();
+            await testMetrics();
+            showStatus('all-status', 'success', '✅ All tests completed');
+        }
+    </script>
+</body>
+</html>

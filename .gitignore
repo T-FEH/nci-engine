@@ -1,0 +1,220 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# UV
+.uv/
+uv.lock
+
+# Environment variables (contains API keys!)
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+logs/
+*.log
+
+# Data files (keep structure, ignore contents)
+data/*.csv
+data/*.db
+data/*.json
+data/*.pkl
+data/*.parquet
+!data/.gitkeep
+
+# Vector database files
+data/vectors.db
+data/vectors.db-*
+
+# Results (keep structure, ignore contents)
+results/*.json
+results/*.csv
+results/*.txt
+results/*.png
+!results/.gitkeep
+
+# Pytest
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+
+# Mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Ruff
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# OS
+.DS_Store
+Thumbs.db
+*.bak
+
+# Playwright
+playwright-report/
+test-results/
+
+# Sentence Transformers / HuggingFace cache
+.cache/
+~/.cache/huggingface/
+~/.cache/torch/
+
+# Redis dump
+dump.rdb
+
+# Docker
+*.env.docker
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# Model files (large)
+*.bin
+*.pt
+*.pth
+*.onnx
+!requirements*.txt
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Specify extension (local development)
+.specify/
+specs/
+
+# AWS Deployment
+*.pem
+*.key
+aws-config/
+.aws/
+
+# Node modules (frontend)
+node_modules/
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/dist/
+
+# Frontend environment
+frontend/.env
+frontend/.env.local
+frontend/.env.production
+frontend/.env.development
+
+# Package manager locks (keep only one)
+frontend/package-lock.json
+frontend/yarn.lock
+frontend/pnpm-lock.yaml
+
+# Production build artifacts
+build/
+dist/
+out/
+*.tar.gz
+*.zip
+
+# Database dumps
+*.sql
+*.dump
+*.backup
+
+# Temporary files
+nohup.out
+*.pid
+*.seed
+*.out
+
+# System files
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor backups
+*~
+*.bak
+*.orig
+
+# Testing
+test_*.py
+!tests/test_*.py
+
+# Local development scripts
+test_*.sh
+local_*.sh
+debug_*.py
+
+# Monitoring/logs from production
+/tmp/
+*.access.log
+*.error.log
+gunicorn.log
+nginx.log
+
+# Secrets and credentials
+secrets.json
+credentials.json
+service-account.json
+
+# Cache directories
+.cache/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Large model files (download on deployment)
+models/*.bin
+models/*.safetensors
+models/*.h5
+models/*.onnx

@@ -1,0 +1,95 @@
+version: '3.8'
+
+services:
+  # Redis Cache Service
+  redis:
+    image: redis:7.2-alpine
+    container_name: nci-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: >
+      redis-server
+      --maxmemory 256mb
+      --maxmemory-policy allkeys-lru
+      --appendonly yes
+      --appendfsync everysec
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - nci-network
+
+  # Optional: Redis Commander UI for debugging
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: nci-redis-commander
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+    ports:
+      - "8081:8081"
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - nci-network
+    profiles:
+      - debug
+
+  # NCI Engine API (optional - can run locally)
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nci-api
+    ports:
+      - "8000:8000"
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - CACHE_ENABLED=true
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./results:/app/results
+      - ./logs:/app/logs
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - nci-network
+    profiles:
+      - full
+
+volumes:
+  redis_data:
+    driver: local
+
+networks:
+  nci-network:
+    driver: bridge
+
+# Usage:
+# Start Redis only (default):
+#   docker-compose up -d
+#
+# Start with Redis Commander UI:
+#   docker-compose --profile debug up -d
+#
+# Start full stack (requires Dockerfile):
+#   docker-compose --profile full up -d
+#
+# View logs:
+#   docker-compose logs -f redis
+#
+# Stop all services:
+#   docker-compose down
+#
+# Remove volumes:
+#   docker-compose down -v

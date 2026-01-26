@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "name": "Jasper",
+    "summary": "AI writing assistant for content creation",
+    "description": "Jasper is an AI-powered writing tool that helps create high-quality content for blogs, marketing, and social media.",
+    "categories": ["writing", "ai", "content"],
+    "pricing": "Paid",
+    "features": ["blog writing", "social media posts", "email marketing", "SEO optimization"]
+  },
+  {
+    "id": 2,
+    "name": "Zapier",
+    "summary": "Workflow automation platform",
+    "description": "Zapier connects your favorite apps and automates workflows without coding.",
+    "categories": ["automation", "integration", "workflow"],
+    "pricing": "Freemium",
+    "features": ["app integrations", "workflow automation", "API connections", "triggers"]
+  },
+  {
+    "id": 3,
+    "name": "Canva",
+    "summary": "Graphic design platform",
+    "description": "Canva is a user-friendly graphic design tool with templates for social media, presentations, and marketing materials.",
+    "categories": ["design", "graphics", "marketing"],
+    "pricing": "Freemium",
+    "features": ["templates", "drag-and-drop", "brand kit", "collaboration"]
+  },
+  {
+    "id": 4,
+    "name": "Airtable",
+    "summary": "Flexible database and spreadsheet hybrid",
+    "description": "Airtable combines the power of spreadsheets with database functionality for project management and data organization.",
+    "categories": ["database", "spreadsheet", "project-management"],
+    "pricing": "Freemium",
+    "features": ["custom fields", "views", "automations", "API access"]
+  },
+  {
+    "id": 5,
+    "name": "Notion",
+    "summary": "All-in-one workspace for notes and collaboration",
+    "description": "Notion is a versatile tool for note-taking, project management, and team collaboration with customizable templates.",
+    "categories": ["notes", "collaboration", "project-management"],
+    "pricing": "Freemium",
+    "features": ["templates", "databases", "real-time collaboration", "integrations"]
+  },
+  {
+    "id": 6,
+    "name": "Mailchimp",
+    "summary": "Email marketing and automation platform",
+    "description": "Mailchimp helps businesses create, send, and track email campaigns with advanced automation features.",
+    "categories": ["email", "marketing", "automation"],
+    "pricing": "Freemium",
+    "features": ["email campaigns", "automation", "analytics", "segmentation"]
+  },
+  {
+    "id": 7,
+    "name": "Trello",
+    "summary": "Visual project management tool",
+    "description": "Trello uses boards, lists, and cards to help teams organize and track work in a visual way.",
+    "categories": ["project-management", "collaboration", "kanban"],
+    "pricing": "Freemium",
+    "features": ["boards", "cards", "lists", "power-ups"]
+  },
+  {
+    "id": 8,
+    "name": "Slack",
+    "summary": "Team communication and collaboration platform",
+    "description": "Slack is a messaging app for teams that brings all communication together in one place.",
+    "categories": ["communication", "collaboration", "messaging"],
+    "pricing": "Freemium",
+    "features": ["channels", "direct messages", "integrations", "file sharing"]
+  },
+  {
+    "id": 9,
+    "name": "Google Analytics",
+    "summary": "Web analytics and reporting tool",
+    "description": "Google Analytics provides detailed insights into website traffic and user behavior.",
+    "categories": ["analytics", "reporting", "web"],
+    "pricing": "Free",
+    "features": ["traffic analysis", "user behavior", "conversion tracking", "reports"]
+  },
+  {
+    "id": 10,
+    "name": "Stripe",
+    "summary": "Online payment processing platform",
+    "description": "Stripe provides payment processing solutions for online businesses with developer-friendly APIs.",
+    "categories": ["payments", "finance", "api"],
+    "pricing": "Paid",
+    "features": ["payment processing", "subscriptions", "invoicing", "developer tools"]
+  }
+]
