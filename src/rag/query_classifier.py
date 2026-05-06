@@ -19,11 +19,17 @@ class QueryType(Enum):
 
 
 class QueryWeights:
-    """Optimal weights for each query type based on analysis."""
+    """Optimal weights for each query type based on analysis.
     
-    PRODUCT_SPECIFIC = (0.5, 0.5)  # Equal weight - BM25 for exact names
-    SEMANTIC = (0.9, 0.1)           # Vector dominant - concept matching
-    FEATURE_BASED = (0.7, 0.3)      # Balanced - current default
+    More aggressive weighting for better accuracy:
+    - Semantic queries: Almost pure vector (concepts > keywords)
+    - Product specific: Strong BM25 boost for brand/alternative matching
+    - Feature based: Balanced but leaning vector
+    """
+    
+    PRODUCT_SPECIFIC = (0.45, 0.55)  # Slightly favor BM25 for exact brand matching
+    SEMANTIC = (0.95, 0.05)          # Very aggressive vector dominance for concepts
+    FEATURE_BASED = (0.75, 0.25)     # Lean vector for feature matching
     
     @classmethod
     def get_weights(cls, query_type: QueryType) -> tuple[float, float]:
@@ -39,30 +45,34 @@ class QueryWeights:
 class QueryClassifier:
     """Rule-based query classifier for adaptive retrieval."""
     
-    # Patterns for product-specific queries
+    # Patterns for product-specific queries (more aggressive matching)
     PRODUCT_PATTERNS = [
-        r'\b(alternative|competitor|similar)\s+to\b',
+        r'\b(alternative|alternatives|competitor|competitors|similar|replacement)\s+(to|for|of)\b',
         r'\binstead\s+of\b',
-        r'\bcompared?\s+to\b',
-        r'\blike\s+\w+\b(?=\s|$)',  # "like Synthesia"
-        r'\b\w+\s+(alternative|competitor|replacement)',
+        r'\bcompared?\s+(to|with)\b',
+        r'\blike\s+\w+\b',                    # "like Synthesia", "tools like Notion"
+        r'\b\w+\s+(alternative|alternatives|competitor|vs|versus)\b',
+        r'\bvs\.?\s+\w+\b',                   # "Notion vs Coda"
     ]
     
-    # Patterns for semantic queries
+    # Patterns for semantic queries (improved coverage)
     SEMANTIC_PATTERNS = [
-        r'^(find|show|list|get)\s+(me\s+)?(some\s+)?tools?\s+(for|to)\b',
-        r'^(what|which)\s+tools?\b',
+        r'^(find|show|list|get|recommend)\s+(me\s+)?(some\s+)?tools?\s+(for|to)\b',
+        r'^(what|which|best)\s+tools?\b',
         r'^tools?\s+(for|to)\b',
-        r'\b(help|assist|support)\s+(me\s+)?(with|in)\b',
+        r'\b(help|assist|support|enable)\s+(me\s+)?(with|in|to)\b',
+        r'\bI\s+need\s+(a|an|to)\b',
+        r'\b(build|create|make)\s+(a|an)\b',
     ]
     
-    # Patterns for feature-based queries  
+    # Patterns for feature-based queries (expanded)  
     FEATURE_PATTERNS = [
-        r'\bwith\s+(API|integration|support|capability)\b',
-        r'\bthat\s+(can|support|offer|provide)\b',
-        r'\b(free|freemium|paid|enterprise)\b',
+        r'\bwith\s+(API|integration|support|capability|feature)\b',
+        r'\bthat\s+(can|support|offer|provide|has)\b',
+        r'\b(free|freemium|paid|enterprise|pricing)\b',
         r'\bunder\s+\$\d+',
-        r'\b(GDPR|SOC2|HIPAA)\b',
+        r'\b(GDPR|SOC2|HIPAA|compliance)\b',
+        r'\b(no-code|nocode|low-code)\b',
     ]
     
     def __init__(self):
