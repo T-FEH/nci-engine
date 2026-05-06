@@ -24,7 +24,15 @@ class AnalysisRepository:
         db_url = os.getenv("DATABASE_URL", "")
         if not db_url:
             raise ValueError("DATABASE_URL not found in environment")
-        self.engine = create_engine(db_url)
+        # Add connection pool settings to prevent SSL timeout errors
+        self.engine = create_engine(
+            db_url,
+            pool_pre_ping=True,  # Verify connections before using
+            pool_recycle=3600,    # Recycle connections after 1 hour
+            pool_size=10,
+            max_overflow=20,
+            connect_args={"connect_timeout": 10}
+        )
         self.SessionLocal = sessionmaker(bind=self.engine)
     
     def _get_session(self) -> Session:
@@ -107,7 +115,15 @@ class EvaluationRepository:
         db_url = os.getenv("DATABASE_URL", "")
         if not db_url:
             raise ValueError("DATABASE_URL not found in environment")
-        self.engine = create_engine(db_url)
+        # Add connection pool settings to prevent SSL timeout errors
+        self.engine = create_engine(
+            db_url,
+            pool_pre_ping=True,  # Verify connections before using
+            pool_recycle=3600,    # Recycle connections after 1 hour
+            pool_size=10,
+            max_overflow=20,
+            connect_args={"connect_timeout": 10}
+        )
         self.SessionLocal = sessionmaker(bind=self.engine)
     
     def _get_session(self) -> Session:
@@ -226,7 +242,15 @@ class MetricsRepository:
         db_url = os.getenv("DATABASE_URL", "")
         if not db_url:
             raise ValueError("DATABASE_URL not found in environment")
-        self.engine = create_engine(db_url)
+        # Add connection pool settings to prevent SSL timeout errors
+        self.engine = create_engine(
+            db_url,
+            pool_pre_ping=True,  # Verify connections before using
+            pool_recycle=3600,    # Recycle connections after 1 hour
+            pool_size=10,
+            max_overflow=20,
+            connect_args={"connect_timeout": 10}
+        )
         self.SessionLocal = sessionmaker(bind=self.engine)
     
     def _get_session(self) -> Session:
@@ -307,11 +331,32 @@ class MetricsRepository:
             else:
                 p95 = 0
             
+            # Get actual cache hit rate from cache manager
+            cache_hit_rate = 0.0
+            try:
+                from src.database.cache import get_cache_manager
+                cache = get_cache_manager()
+                hit_stats = cache.get_hit_rate()
+                
+                # Calculate overall hit rate from all cache types
+                if isinstance(hit_stats, dict) and 'status' not in hit_stats:
+                    total_hits = 0
+                    total_requests = 0
+                    for cache_type, cache_stats in hit_stats.items():
+                        if isinstance(cache_stats, dict):
+                            total_hits += cache_stats.get('hits', 0)
+                            total_requests += cache_stats.get('total', 0)
+                    
+                    if total_requests > 0:
+                        cache_hit_rate = round((total_hits / total_requests) * 100, 2)
+            except Exception as cache_error:
+                logger.debug(f"Could not get cache hit rate: {cache_error}")
+            
             return {
-                'total_queries': stats.total or 0,  # Changed from total_analyses
-                'avg_latency_ms': float(stats.avg_duration or 0),  # Changed from avg_duration_ms
+                'total_queries': stats.total or 0,
+                'avg_latency_ms': float(stats.avg_duration or 0),
                 'p95_latency_ms': float(p95),
-                'cache_hit_rate': 0.0,  # TODO: Implement cache tracking
+                'cache_hit_rate': cache_hit_rate,
             }
         except Exception as e:
             logger.error(f"Error getting performance stats: {e}")
