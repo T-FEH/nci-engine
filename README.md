@@ -24,6 +24,13 @@ The No-Code Intelligence Engine transforms business problems into actionable sol
 - 🎯 **Admin Metrics**: System performance and usage analytics
 - 🔗 **REST API**: Full-featured API for programmatic access
 
+### 🚀 Recent Improvements (May 2026)
+
+- **Instruction Prefix for Embeddings**: Fixed BGE query instruction prefix (was configured but not applied). Expected +1-3% P@5 improvement with zero latency cost.
+- **Code Refactoring**: Added `_encode_query()` and `_encode_documents()` helpers for cleaner, DRY embedding logic.
+- **Repository Cleanup**: Standardized on `main` branch, removed ~20 obsolete experiment scripts, organized remaining scripts into `experiments/` folder.
+- **Documentation**: Added comprehensive Q&A document and cleaned up redundant presentation files.
+
 **[See full changelog](./UPDATE_NOTES.md)****
 
 ## 🚀 Quick Start

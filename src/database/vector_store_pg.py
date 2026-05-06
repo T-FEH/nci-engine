@@ -96,6 +96,33 @@ class VectorStorePG:
                 self._cache = None
         return self._cache
     
+    def _encode_query(self, query: str) -> np.ndarray:
+        """
+        Encode a query using the instruction prefix (BGE best practice).
+        
+        Args:
+            query: User search query
+            
+        Returns:
+            Normalized embedding vector
+        """
+        settings = get_settings()
+        instruction = getattr(settings.embedding, 'query_instruction', '') or ""
+        query_text = instruction + query if instruction else query
+        return self.model.encode(query_text, normalize_embeddings=True)
+    
+    def _encode_documents(self, texts: list[str]) -> np.ndarray:
+        """
+        Encode documents without instruction prefix.
+        
+        Args:
+            texts: List of document/chunk texts
+            
+        Returns:
+            Array of normalized embedding vectors
+        """
+        return self.model.encode(texts, normalize_embeddings=True)
+    
     def _get_connection(self):
         """Get a new database connection."""
         import socket
@@ -178,9 +205,9 @@ class VectorStorePG:
             
             chunks = enriched_chunks
         
-        # Generate embeddings
+        # Generate embeddings (documents do not use instruction prefix)
         texts = [text for _, text in chunks]
-        embeddings = self.model.encode(texts, normalize_embeddings=True)
+        embeddings = self._encode_documents(texts)
         
         # Insert into database
         with self._get_connection() as conn:
@@ -262,9 +289,13 @@ class VectorStorePG:
         Returns:
             List of SearchResult objects ordered by similarity
         """
-        # Try to get cached embedding
+        # Get settings for query instruction (BGE best practice)
+        settings = get_settings()
+        instruction = settings.embedding.query_instruction or ""
+        
+        # Try to get cached embedding (include instruction in key)
         cache = self._get_cache()
-        cache_key = f"emb:{self.model_name}:{hash(query)}"
+        cache_key = f"emb:{self.model_name}:{hash(instruction + query)}"
         
         query_embedding = None
         if cache:
@@ -279,7 +310,7 @@ class VectorStorePG:
         
         # Generate embedding if not cached
         if query_embedding is None:
-            query_embedding = self.model.encode(query, normalize_embeddings=True)
+            query_embedding = self._encode_query(query)
             
             # Cache the embedding for 7 days
             if cache:
@@ -406,7 +437,7 @@ class VectorStorePG:
         if not tool_ids:
             return []
         
-        query_embedding = self.model.encode(query, normalize_embeddings=True)
+        query_embedding = self._encode_query(query)
         
         sql = """
             SELECT 
