@@ -43,10 +43,13 @@ ignore = []
 
 [tool.pytest.ini_options]
 minversion = "6.0"
-addopts = "-ra -q --cov=src --cov-report=term-missing --cov-report=html"
+addopts = "-ra -q"
 testpaths = [
     "tests",
 ]
+
+# To run with coverage: pytest --cov=src --cov-report=term-missing
+# Requires: uv add --dev pytest-cov
 
 [tool.coverage.run]
 source = ["src"]

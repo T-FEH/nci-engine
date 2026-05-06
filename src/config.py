@@ -91,11 +91,11 @@ class EmbeddingConfig:
         default_factory=lambda: os.getenv("EMBEDDING_MODEL", "BAAI/bge-small-en-v1.5")
     )
     
-    # Query instruction for asymmetric retrieval
+    # Query instruction for asymmetric retrieval (domain-specific for better accuracy)
     query_instruction: str = field(
         default_factory=lambda: os.getenv(
             "QUERY_INSTRUCTION", 
-            "Represent this sentence for searching relevant passages: "
+            "Represent this query for searching relevant no-code AI tools: "
         )
     )
     
